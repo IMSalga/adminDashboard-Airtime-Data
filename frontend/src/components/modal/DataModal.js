@@ -82,7 +82,12 @@ const DataModal = ({ subTitle, handleOpenModal, handleOpenEditModal, open, val }
           </Typography>
           <br />
           {error && <Typography color="error">{error}</Typography>}
-          <TextField id="Network" label="Network" value={network} onChange={(e) => setNetwork(e.target.value)} />
+          <TextField
+            id="Network"
+            label="Network"
+            value={network}
+            onChange={(e) => setNetwork(e.target.value.toUpperCase())}
+          />
           <br />
           <br />
           <TextField id="plan" label="Plan" value={plan} onChange={(e) => setPlan(e.target.value)} />

@@ -78,7 +78,12 @@ const AirtimeModal = ({ subTitle, handleOpenModal, handleOpenEditModal, open, va
           </Typography>
           <br />
           {error && <Typography color="error">{error}</Typography>}
-          <TextField id="Network" label="Network" value={network} onChange={(e) => setNetwork(e.target.value)} />
+          <TextField
+            id="Network"
+            label="Network"
+            value={network}
+            onChange={(e) => setNetwork(e.target.value.toUpperCase())}
+          />
           <br />
           <br />
           <TextField id="amount" label="Amount" value={amount} onChange={(e) => setAmount(e.target.value)} />

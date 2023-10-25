@@ -236,7 +236,7 @@ export default function AirtimePage() {
                         <TableCell component="th" scope="row" padding="none">
                           <Stack direction="row" alignItems="center" spacing={2}>
                             <Typography variant="subtitle2" noWrap>
-                              {network}
+                              {network.toUpperCase()}
                             </Typography>
                           </Stack>
                         </TableCell>

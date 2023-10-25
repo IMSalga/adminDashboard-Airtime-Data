@@ -17,12 +17,14 @@ export default function LoginForm() {
   const [password, setPassword] = useState('');
   const [status, setStatus] = useState('');
   const handleClick = () => {
+    console.log('I am clicked');
     axios
       .post('http://localhost:4000/api/users/', {
         email,
         password,
       })
       .then((res) => {
+        console.log('Incoming!!!!!');
         if (res.status === 200) {
           if (res.data.role !== 'admin') {
             alert('Access denied');
@@ -31,12 +33,13 @@ export default function LoginForm() {
           setStatus('Success');
           console.log(res.data);
           localStorage.setItem('airtime', JSON.stringify(res.data));
-          navigate('/dashboard', { replace: true });
+          navigate('/', { replace: true });
         }
       })
       .catch((error) => {
         setStatus(error.response.data.message);
         console.log(error.response);
+        console.log('Incoming!!!');
       });
   };
 

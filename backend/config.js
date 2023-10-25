@@ -2,7 +2,8 @@ import mongoose from "mongoose";
 
 export class Database {
   constructor() {
-    this.url = process.env.MONGO_URI;
+    this.url =
+      "mongodb+srv://evoting:Smartboy!__284@cluster0.nrpj9dc.mongodb.net/airtime?";
   }
   async connect() {
     try {

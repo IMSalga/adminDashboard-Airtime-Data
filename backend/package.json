@@ -26,6 +26,7 @@
     "find-config": "^1.0.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.4.3",
+    "nodemon": "^3.0.1",
     "path": "^0.12.7"
   }
 }

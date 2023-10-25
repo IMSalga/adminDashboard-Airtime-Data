@@ -86,9 +86,9 @@ export const login = asyncHandler(async (req, res) => {
   try {
     //validating user password
     const validatePassword = await bcrypt.compare(password, user.password);
-
     //log user in
     const wallet = await WalletModel.find(user._id);
+
     if (validatePassword && wallet) {
       return res.status(200).json({
         _id: user._id,

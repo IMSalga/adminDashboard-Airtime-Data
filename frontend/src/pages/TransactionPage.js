@@ -62,7 +62,21 @@ function applySortFilter(array, comparator, query) {
     return a[1] - b[1];
   });
   if (query) {
-    return filter(array, (_user) => _user.name.toLowerCase().indexOf(query.toLowerCase()) !== -1);
+    console.log(query);
+    console.log(array);
+    return array.filter((_item) => {
+      console.log(_item);
+      // Check if _item and relevant properties are defined before using toLowerCase()
+      if (_item && _item.phone && _item.plan && _item.network && typeof _item.amount === 'number') {
+        return (
+          _item.phone.toLowerCase().includes(query.toLowerCase()) ||
+          _item.plan.toLowerCase().includes(query.toLowerCase()) ||
+          _item.network.toLowerCase().includes(query.toLowerCase()) ||
+          _item.amount.toString().includes(query)
+        );
+      }
+      return false; // Return false if any of the properties are undefined
+    });
   }
   return stabilizedThis.map((el) => el[0]);
 }
